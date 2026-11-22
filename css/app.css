@@ -871,3 +871,7 @@ button.tag { border: 0; cursor: pointer; }
   .classbar { overflow-x: auto; flex-wrap: nowrap; }
   .drawer { width: 100%; }
 }
+
+/* before sign-in, only the sign-in card shows */
+.app.is-auth { grid-template-columns: minmax(0, 1fr) !important; }
+.app.is-auth .rail, .app.is-auth .rail-scrim, .app.is-auth .mobilebar { display: none !important; }

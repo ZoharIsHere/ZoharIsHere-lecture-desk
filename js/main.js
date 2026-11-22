@@ -77,7 +77,9 @@ async function boot() {
       try { user = await currentUser(); } catch (e) { console.warn('[boot] auth', e); }
       if (!user) {
         if (!navigator.onLine) { stage.textContent = 'You are offline and not signed in yet. Connect once to sign in.'; return; }
+        app.classList.add('is-auth');
         user = await showAuth(stage);
+        app.classList.remove('is-auth');
         stage.replaceChildren();
       }
       await store.init({ sb: await client(), user });
